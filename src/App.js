@@ -14,8 +14,8 @@ function App() {
       <Routes>
         <Route path='/home' element={<Home/>} />
         <Route path='/about' element={<About/>} />
-        <Route path='/country' element={<Country/>} />
-        <Route path='/country/:url' element={<Country/>} />
+        {/* <Route path='/country' element={<Country/>} /> */}
+        <Route path='/country/:name/:code' element={<Country/>} />
       </Routes>
       </BrowserRouter>
     </div>
