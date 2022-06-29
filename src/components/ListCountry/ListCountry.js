@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Country from "../../pages/Country/Country";
 import { useNavigate } from "react-router-dom";
+import './ListCountry.css'
 
-const ListCountry = ({setCodeCountry, codeCountry}) => {
-
+const ListCountry = () => {
   const navigate = useNavigate();
 
   const [countryList, setCountryList] = useState([]);
@@ -19,26 +18,20 @@ const ListCountry = ({setCodeCountry, codeCountry}) => {
 
   return (
     <div>
-
-      {/* <input  /> */}
-        <div>
-        <select onClick={listCountries}
-            onChange={(e) => { 
+        <select
+          onClick={listCountries}
+          onChange={(e) => {
             const nameCountry = e.target.value.split(":")[0];
             const codeCountry = e.target.value.split(":")[1];
             navigate(`../country/${nameCountry}/${codeCountry}`);
           }}
         >
-                      <option>'searchCountry'</option>
-
+          <option>'searchCountry'</option>
           {countryList.map((el) => (
             <option>{el}</option>
           ))}
-        
         </select>
-        </div>
-      {/* </input> */}
-    </div>
+      </div>
   );
 };
 

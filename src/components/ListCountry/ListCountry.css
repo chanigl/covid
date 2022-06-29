@@ -1,0 +1,9 @@
+select option{
+    width: 30px;
+}
+select{
+    border: 2px solid blue;
+    height: 30px;
+    width: 200px;
+    margin-top: 25px;
+}

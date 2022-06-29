@@ -3,6 +3,30 @@
     text-align: center;
     display: flex;
     flex-direction: row;
-    border: 5px solid blue;
-    justify-content: space-between;
+    /* border: 5px solid blue; */
+    justify-content: space-around;
+}
+.spanconfirmed{
+    border: 2px solid black;
+    padding: 35px;
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 15px;
+    padding: 25px;
+    font-size: x-large;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.total{
+    text-align: center;
+    font-size: xxx-large;
+    text-transform: uppercase;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 40px;
+    font-weight: bolder;
+    background-color: blanchedalmond;
 }

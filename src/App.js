@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Country from './pages/Country/Country';
+import Sort from './components/Sort/Sort';
 
 
 function App() {
@@ -14,8 +15,8 @@ function App() {
       <Routes>
         <Route path='/home' element={<Home/>} />
         <Route path='/about' element={<About/>} />
-        {/* <Route path='/country' element={<Country/>} /> */}
         <Route path='/country/:name/:code' element={<Country/>} />
+        <Route path='/sort' element={<Sort/>} />
       </Routes>
       </BrowserRouter>
     </div>

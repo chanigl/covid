@@ -1,22 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import ListCountry from "../ListCountry/ListCountry";
-import Country from "../../pages/Country/Country";
+import './Navbar.css'
 
 const styleNav = {
   display: "flex",
   justifyContent: "space-around",
-  textDecoration:"none"
+  textDecoration:"none",
+  texttTansform:'uppercase'
 };
 const Navbar = () => {
 
-  const [codeCountry, setCodeCountry] = useState('')
 
   return (
     <div style={styleNav}>
-      <li><Link to="/home">Home</Link></li>
+      <li><Link to="/home"><p>Home</p></Link></li>
       <li><Link to="/"><ListCountry/></Link></li>
-      <li><Link to="/about">About</Link></li>
+      <li><Link to="/about"><p>About</p></Link></li>
+      {/* <li><Link to="/sort"><p>sort</p></Link></li> */}
+
     </div>
   );
 };

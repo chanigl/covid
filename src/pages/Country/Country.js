@@ -1,40 +1,34 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ListCountry from "../../components/ListCountry/ListCountry";
 import { useParams } from "react-router-dom";
+import './Country.css'
 
 const Country = () => {
   const params = useParams();
 
-  console.log(params.code);
+  console.log(params);
 
   const [coviData, setCoviData] = useState([]);
-  // const [cases, setCases] = useState('')
-  // const [recovered, setRecovered] = useState('')
-  // const [today, setToday] = useState([])
-  // const [deaths, setDeaths] = useState('')
-  // const [critical, setCritical] = useState('')
-  // const [code, setCode] = useState('')
+  const [coviDatActive, setCoviDatActive] = useState([]);
 
   async function countryData() {
     const countryUrl = `https://corona-api.com/countries/${params.code}`;
     const { data } = await axios.get(countryUrl);
-    console.log(data);
+    // console.log(data);
     const dataList = data.data.latest_data;
+    // console.log(data.data.timeline[0]);
+
+    data.data.timeline[0] === undefined
+      ? setCoviDatActive(["no data"])
+      : setCoviDatActive(data.data.timeline[0].new_confirmed.toLocaleString());
     setCoviData([
-      data.data.timeline[0].new_confirmed,
-      dataList.confirmed,
-      dataList.recovered,
-      data.data.today.deaths,
-      dataList.deaths,
-      dataList.critical
+      dataList.confirmed.toLocaleString(),
+      dataList.recovered.toLocaleString(),
+      data.data.today.deaths.toLocaleString(),
+      dataList.deaths.toLocaleString(),
+      dataList.critical.toLocaleString(),
     ]);
-    // setCases(dataList.confirmed)
-    // setRecovered(dataList.recovered)
-    // setToday(data.data.today.deaths)
-    // setDeaths(dataList.deaths)
-    // setCritical(dataList.critical)
-    console.log({ coviData });
+    // console.log({ coviData });
   }
 
   useEffect(() => {
@@ -42,16 +36,20 @@ const Country = () => {
   }, []);
 
   return (
-    <div>
-      <h1>{params.name}:</h1>
-      <hr />
-      <div>active: {coviData[0]}</div>
-      <div>cases: {coviData[1]}</div>
-      <div>recovered: {coviData[2]}</div>
-      <div>today: {coviData[3]}</div>
-      <div>deaths: {coviData[4]}</div>
-      <div>critical: {coviData[5]}</div>
-    </div>
+    <>
+      <div>
+        <h1>{params.name}:</h1>
+        <hr />
+        <div className="datadiv">
+        <div><span>active:</span> {coviDatActive}</div>
+        <div><span>cases: </span>{coviData[0]}</div>
+        <div><span>recovered:</span> {coviData[1]}</div>
+        <div><span>today:</span> {coviData[2]}</div>
+        <div><span>deaths:</span> {coviData[3]}</div>
+        <div><span>critical: </span>{coviData[4]}</div>
+      </div>
+      </div>
+    </>
   );
 };
 
