@@ -16,6 +16,7 @@
     flex-direction: row;
     justify-content: space-between;
 }
-li{
-    text-decoration:underline;
+li:hover{
+    background-color: blue;
+    cursor: grab;
 }

@@ -24,6 +24,7 @@ const Home = () => {
   },[])
   return (
     <>
+    <h2 className="homeTitle">Covid -19 data in the world</h2>
       <div className="total">total cases: {time[0]}</div>
       <div className="confirmed">
         <span className="spanconfirmed">   deaths: {time[1]}</span>

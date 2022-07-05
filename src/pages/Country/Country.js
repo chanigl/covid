@@ -14,9 +14,8 @@ const Country = () => {
   async function countryData() {
     const countryUrl = `https://corona-api.com/countries/${params.code}`;
     const { data } = await axios.get(countryUrl);
-    // console.log(data);
+     console.log(data);
     const dataList = data.data.latest_data;
-    // console.log(data.data.timeline[0]);
 
     data.data.timeline[0] === undefined
       ? setCoviDatActive(["no data"])
@@ -28,12 +27,11 @@ const Country = () => {
       dataList.deaths.toLocaleString(),
       dataList.critical.toLocaleString(),
     ]);
-    // console.log({ coviData });
   }
 
   useEffect(() => {
     countryData();
-  }, []);
+  }, [params]);
 
   return (
     <>
