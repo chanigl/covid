@@ -35,7 +35,7 @@ const Country = () => {
 
   return (
     <>
-      <div>
+      <div style={{  width:'80%',  marginLeft:"150px" }}>
         <h1>{params.name}:</h1>
         <hr />
         <div className="datadiv">

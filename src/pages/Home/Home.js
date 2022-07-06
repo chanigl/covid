@@ -24,6 +24,7 @@ const Home = () => {
   },[])
   return (
     <>
+    <div style={{ width:'80%',  marginLeft:"150px"}}>
     <h2 className="homeTitle">Covid -19 data in the world</h2>
       <div className="total">total cases: {time[0]}</div>
       <div className="confirmed">
@@ -33,6 +34,7 @@ const Home = () => {
         <span className="spanconfirmed">  new deaths:  {time[4]}</span>
       </div>
       <Sort/>
+      </div>
    </>
   );
 };

@@ -28,6 +28,8 @@ li{
     text-decoration: none;
     background-color: cornflowerblue;
     color: black;
+    font-size:xx-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .list{
     margin-top: 100px;

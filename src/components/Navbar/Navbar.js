@@ -10,6 +10,8 @@ const styleNav = {
   texttTansform: "uppercase",
   backgroundColor: "cornflowerblue",
   height: "150px",
+  width:'80%',
+  marginLeft:"150px"
 };
 
 const Navbar = ({ countryList, setCountryList, inputValue, setInputValue, isClick, setIsClick }) => {
@@ -28,7 +30,7 @@ const Navbar = ({ countryList, setCountryList, inputValue, setInputValue, isClic
   return (
     <div style={styleNav}>
       <Link to="/home">
-        <h1 className="title">Home</h1>
+        <h2 className="title">Home</h2>
       </Link>
       <div className="search">
         <button
@@ -64,7 +66,7 @@ const Navbar = ({ countryList, setCountryList, inputValue, setInputValue, isClic
         )}</div> : null}
       </div>
       <Link to="/about">
-        <h1 className="title">About</h1>
+        <h2 className="title">About</h2>
       </Link>
     </div>
   );
