@@ -9,7 +9,9 @@ import React, { useState } from "react";
 
 function App() {
   const [countryList, setCountryList] = useState([]);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState();
+  const [isClick, setIsClick] = useState(false);  
+
 
   return (
     <div>
@@ -19,6 +21,8 @@ function App() {
           setCountryList={setCountryList}
           inputValue={inputValue}
           setInputValue={setInputValue}
+          isClick={isClick}
+          setIsClick={setIsClick}
         />
         <Routes>
           <Route path="/home" element={<Home />} />

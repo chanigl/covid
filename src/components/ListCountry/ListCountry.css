@@ -9,3 +9,11 @@ option:hover{
 
 
 }
+.option{
+    overflow: scroll;
+    height: 150px;
+    width: 350px;
+    border: 1px solid black;
+    background-color: white;
+
+}

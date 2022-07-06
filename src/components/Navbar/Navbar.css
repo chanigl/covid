@@ -29,3 +29,9 @@ li{
     background-color: cornflowerblue;
     color: black;
 }
+.list{
+    margin-top: 100px;
+    margin-left: -210px;
+    margin-bottom: 20px;
+    z-index: 999;
+}

@@ -1,56 +1,39 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./ListCountry.css";
 
-const ListCountry = ({ countryList, setCountryList, inputValue }) => {
+const ListCountry = ({ countryList, inputValue, setInputValue, setIsClick }) => {
+  
   const navigate = useNavigate();
-  const [value, setValue] = useState(countryList);
+  const [values, setValues] = useState(countryList);
 
-  async function listCountries() {
-    const countryUrl = "https://corona-api.com/countries";
-    const { data } = await axios.get(countryUrl);
-    console.log(data);
-    // setCountryList(data.data.map((el) => `${el.name}  :${el.code}`));
-    setCountryList(data.data.map((el) => ({ name: el.name, code: el.code })));
-  }
-
-  useEffect(() => {
-    listCountries();
-  }, []);
 
   useEffect(() => {
     console.log(countryList);
-    const filter = countryList.filter((cur) =>
-      cur.name.toLowerCase().includes(inputValue.toLowerCase())
+    if (!inputValue=="")
+    {const filter = countryList.filter((cur) =>
+      cur.name?.toLowerCase().includes(inputValue?.toLowerCase())
     );
     console.log(filter);
-    setValue(filter);
+    setValues(filter);}
   }, [inputValue]);
 
   return (
-    <div>
-      <div
-        style={{
-          overflow: "scroll",
-          height: "150px",
-          width: "150px",
-          border: "1px solid black",
-          backgroundColor: "white",
-        }}
-      >
-        {value.map((el) => (
-          <option
+      <div className="option">
+        {values.map((el) => (
+          <option 
             onClick={() => {
               console.log(el);
+              console.log(el.name);
+              setInputValue(el.name)
               navigate(`../country/${el.name}/${el.code}`);
+              setIsClick(false)
             }}
           >
             {el.name}
           </option>
         ))}
       </div>
-    </div>
   );
 };
 
